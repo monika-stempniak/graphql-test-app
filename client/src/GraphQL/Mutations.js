@@ -17,3 +17,19 @@ export const ADD_MOVIE = gql`
     }
   }
 `;
+
+export const TOGGLE_FAVORITE = gql`
+  mutation toggleFavorite($id: ID!) {
+    toggleFavorite(id: $id) {
+      id
+    }
+  }
+`;
+
+export const TOGGLE_WATCHED = gql`
+  mutation toggleWatched($id: ID!) {
+    toggleWatched(id: $id) {
+      id
+    }
+  }
+`;

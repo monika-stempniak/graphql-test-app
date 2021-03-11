@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 
 import { ADD_MOVIE } from '../GraphQL/Mutations';
+import { GET_MOVIES } from '../GraphQL/Queries';
 
 const MOVIE_GENRES = [
   'Action',
@@ -44,6 +45,7 @@ function AddMovie() {
         watched: false,
         favorite: false,
       },
+      refetchQueries: [{ query: GET_MOVIES }],
     });
   };
 

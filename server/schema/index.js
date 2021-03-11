@@ -28,10 +28,40 @@ const Mutation = new GraphQLObjectType({
         favorite: { type: GraphQLBoolean },
       },
       resolve(parent, args) {
-        movieData.push({
+        movieData.unshift({
           id: movieData.length + 1,
           ...args
         });
+        return args;
+      }
+    },
+    toggleFavorite: {
+      type: MovieType,
+      args: {
+        id: { type: GraphQLID },
+      },
+      resolve(parent, args) {
+        movieData.map(movie => {
+          if(movie.id === Number(args.id)) {
+            movie.favorite = !movie.favorite;
+          }
+          return movie;
+        })
+        return args;
+      }
+    },
+    toggleWatched: {
+      type: MovieType,
+      args: {
+        id: { type: GraphQLID },
+      },
+      resolve(parent, args) {
+        movieData.map(movie => {
+          if(movie.id === Number(args.id)) {
+            movie.watched = !movie.watched;
+          }
+          return movie;
+        })
         return args;
       }
     }
