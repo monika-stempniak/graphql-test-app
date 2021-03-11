@@ -11,10 +11,14 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="app">
-        <h1>My Movies</h1>
-        <AddMovie />
-        <hr />
+      <div className="hero" />
+      <div className="container-fluid px-0 header">
+        <div className="d-flex flex-column align-items-center">
+          <h1 className="page-title movie-title my-2">Movies</h1>
+          <AddMovie />
+        </div>
+      </div>
+      <div className="container">
         <Movies />
       </div>
     </ApolloProvider>

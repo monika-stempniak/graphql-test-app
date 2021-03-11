@@ -8,5 +8,48 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #ccc;
+  background-color: #d6cfc7;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+}
+
+.page-title {
+  color: #fff;
+}
+
+.movie-title {
+  font-family: 'Fredoka One', cursive;
+}
+
+.hero {
+  background-image: url(./assets/the-greats.jpg);
+  background-color: #212529;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  position: sticky;
+  top: -100px;
+  left: auto;
+}
+
+.movie-btn {
+  background-color: #fee12b;
+  border-color: #fee12b;
+  color: #212529;
+}
+
+.icon-default {
+  color: #d6cfc7;
+}
+
+.icon-eye {
+  color: #af69ee;
+}
+
+.icon-heart {
+  color: #e0115f;
 }

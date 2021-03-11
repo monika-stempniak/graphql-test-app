@@ -56,25 +56,34 @@ function AddMovie() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Movie Title"
-        onChange={(e) => setMovieTitle(e.target.value)}
-      />
-      <br />
-      <select multiple size={6} value={multiSelectValue} onChange={handleMultiSelect}>
-        {MOVIE_GENRES.sort().map((genre) => {
-          return (
-            <option value={genre} key={genre}>
-              {genre}
-            </option>
-          );
-        })}
-      </select>
-      <br />
-      <button>Add Movie</button>
-    </form>
+    <div className="card mb-2 w-100" style={{ maxWidth: 400 }}>
+      <div className="card-body">
+        <form onSubmit={handleSubmit}>
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Movie Title"
+            onChange={(e) => setMovieTitle(e.target.value)}
+          />
+          <select
+            className="form-select my-2"
+            multiple
+            size={4}
+            value={multiSelectValue}
+            onChange={handleMultiSelect}
+          >
+            {MOVIE_GENRES.sort().map((genre) => {
+              return (
+                <option value={genre} key={genre}>
+                  {genre}
+                </option>
+              );
+            })}
+          </select>
+          <button className="btn btn-primary w-100 movie-btn">Add Movie</button>
+        </form>
+      </div>
+    </div>
   );
 }
 
