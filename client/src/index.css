@@ -18,6 +18,7 @@ body {
 
 .page-title {
   color: #fff;
+  text-shadow: 2px 2px 2px #212529;
 }
 
 .movie-title {
@@ -44,6 +45,7 @@ body {
 
 .icon-default {
   color: #d6cfc7;
+  cursor: pointer;
 }
 
 .icon-watched {

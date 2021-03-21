@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { useMutation } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
@@ -39,12 +40,12 @@ function MovieCard({ id, movieTitle, movieGenres, watched, favorite }) {
         <div className="col-3 d-flex justify-content-end">
           <FontAwesomeIcon
             icon={faEye}
-            className={`${watched ? 'icon-watched' : 'icon-default'} me-2`}
+            className={cn('me-2', 'icon-default', { 'icon-watched': watched })}
             onClick={handleClickWatched}
           />
           <FontAwesomeIcon
             icon={faHeart}
-            className={favorite ? 'icon-favorite' : 'icon-default'}
+            className={cn('icon-default', { 'icon-favorite': favorite })}
             onClick={handleClickFavorite}
           />
         </div>
