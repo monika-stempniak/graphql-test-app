@@ -14,13 +14,8 @@ function Movies() {
     }
   }, [data]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    console.log(error);
-  }
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
 
   return (
     <ul className="px-0 mt-1">

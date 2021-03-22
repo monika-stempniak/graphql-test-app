@@ -14,7 +14,7 @@ function App() {
       <div className="hero" />
       <div className="container-fluid px-0 header">
         <div className="d-flex flex-column align-items-center">
-          <h1 className="page-title movie-title my-2">Movies</h1>
+          <h1 className="page-title title my-2">Movies</h1>
           <AddMovie />
         </div>
       </div>

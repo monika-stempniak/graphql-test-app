@@ -21,8 +21,12 @@ body {
   text-shadow: 2px 2px 2px #212529;
 }
 
-.movie-title {
+.title {
   font-family: 'Fredoka One', cursive;
+}
+
+.movie-title {
+  cursor: pointer;
 }
 
 .hero {
@@ -54,4 +58,12 @@ body {
 
 .icon-favorite {
   color: #e0115f;
+}
+
+.details-container {
+  border-top: 1px solid #fee12b;
+}
+
+.details-text {
+  font-size: 0.675em;
 }

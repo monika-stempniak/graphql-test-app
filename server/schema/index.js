@@ -1,7 +1,7 @@
 const qraphql = require('graphql');
 const { GraphQLSchema, GraphQLObjectType, GraphQLBoolean, GraphQLString, GraphQLID, GraphQLList } = qraphql;
 
-const { MovieType } = require('./typeDefs');
+const { MovieType, GenreType } = require('./typeDefs');
 const movieData = require('../MOCK_DATA.json');
 
 const RootQuery = new GraphQLObjectType({
@@ -11,6 +11,44 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(MovieType),
       resolve(parent, args) {
         return movieData;
+      }
+    },
+    getMovieDetails: {
+      type: MovieType,
+      args: {
+        id: { type: GraphQLID }
+      },
+      resolve(parent, args) {
+        return movieData.find(movie => movie.id === Number(args.id)) || {};
+      }
+    },
+    getMoviesByGenre: {
+      type: new GraphQLList(GenreType),
+      args: {
+        movieId: { type: GraphQLID },
+      },
+      resolve(parent, args) {
+        const selectedMovie = movieData.find(movie => movie.id === Number(args.movieId)) || {};
+        const selectedMovieGenres = selectedMovie.movieGenres.split('|');
+        const obj = {};
+        selectedMovieGenres.forEach(genre => {
+          for (const movie of movieData) {
+            if(movie.movieGenres.includes(genre)) {
+              if(obj[genre]) {
+                obj[genre].push(movie.movieTitle);
+              } else {
+                obj[genre] = [movie.movieTitle];
+              }
+            }
+          }
+        });
+
+        const moviesByGenre = Object.keys(obj).map(genre => ({
+          genre,
+          movies: obj[genre]
+        }));
+
+        return moviesByGenre;
       }
     }
   }
